@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33712.159
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TWS.ScheduledTask.SurveyMonkey", "TWS.ScheduledTask.SurveyMonkey\TWS.ScheduledTask.SurveyMonkey.csproj", "{4CAE174A-8C2B-47DA-B2BF-1A92C207B798}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tws.SurveyMonkey.Data", "Tws.SurveyMonkey.Data\Tws.SurveyMonkey.Data.csproj", "{D3C682D4-AB5C-4334-8DDA-8C8B4AEFA272}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4CAE174A-8C2B-47DA-B2BF-1A92C207B798}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CAE174A-8C2B-47DA-B2BF-1A92C207B798}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CAE174A-8C2B-47DA-B2BF-1A92C207B798}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CAE174A-8C2B-47DA-B2BF-1A92C207B798}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3C682D4-AB5C-4334-8DDA-8C8B4AEFA272}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3C682D4-AB5C-4334-8DDA-8C8B4AEFA272}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3C682D4-AB5C-4334-8DDA-8C8B4AEFA272}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3C682D4-AB5C-4334-8DDA-8C8B4AEFA272}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B3D43D97-926D-44EB-8EB5-8E7A42DED032}
+	EndGlobalSection
+EndGlobal
