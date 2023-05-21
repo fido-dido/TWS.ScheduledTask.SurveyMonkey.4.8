@@ -80,26 +80,26 @@ namespace TWS.ScheduledTask.SurveyMonkey.Services
                                                                         surveyDetailsSM.response_count, surveyDetailsSM.date_created,
                                                                         surveyDetailsSM.date_modified);
 
-                    smSurvey = await _repository.SurveySet.Item(smSurvey);
+                    smSurvey = _repository.SurveySet.Item(smSurvey).GetAwaiter().GetResult();
 
-                    //await LoadSurveyCollectors(smSurvey);
+                    await LoadSurveyCollectors(smSurvey);
 
                     foreach (var page in surveyDetailsSM.pages)
                     {
                         SMPage smPage = new SMPage(page.id, smSurvey.Id, page.title, page.description, page.question_count, page.position);
-                        smPage = await _repository.SurveyPageSet.Item(smPage);
+                        smPage =  _repository.SurveyPageSet.Item(smPage).GetAwaiter().GetResult();
 
                         foreach (var question in page.questions)
                         {
                             SMQuestion smQuestion = new SMQuestion(question.id, smPage.Id, question.family, question.headings.First().heading, question.position);
-                            smQuestion = await _repository.SurveyQuestionSet.Item(smQuestion);
+                            smQuestion =  _repository.SurveyQuestionSet.Item(smQuestion).GetAwaiter().GetResult(); 
 
                             if (question.family == "single_choice" || question.family == "matrix")
                             {
                                 foreach (var choice in question.answers.choices)
                                 {
                                     SMChoice smChoice = new SMChoice(choice.id, smQuestion.Id, choice.text, choice.position);
-                                    smChoice = await _repository.SurveyQuestionChoiceSet.Item(smChoice);
+                                    smChoice =  _repository.SurveyQuestionChoiceSet.Item(smChoice).GetAwaiter().GetResult();
                                 }
                             }
 
@@ -127,9 +127,9 @@ namespace TWS.ScheduledTask.SurveyMonkey.Services
                 foreach (var collector in surveyCollectorsSM.data.Where(coll => coll.type == "email"))
                 {
                     SMCollector smCollector = new SMCollector(collector.id, survey.Id, collector.name, collector.type, collector.email);
-                    smCollector = await _repository.SurveyCollectorSet.Item(smCollector);
+                    smCollector =  _repository.SurveyCollectorSet.Item(smCollector).GetAwaiter().GetResult();
 
-                    //await LoadCollectorRecipients(smCollector);
+                    await LoadCollectorRecipients(smCollector);
                 }
             }
             _logger.Info("LoadSurveyCollectors End");
@@ -143,7 +143,7 @@ namespace TWS.ScheduledTask.SurveyMonkey.Services
             foreach (var recipient in collector.data)
             {
                 var dbRecipient = new SMRecipient(recipient.id, smCollector.Id, recipient.email, recipient.phone_number);
-                dbRecipient = await _repository.CollectorRecipientSet.Item(dbRecipient);
+                dbRecipient =  _repository.CollectorRecipientSet.Item(dbRecipient).GetAwaiter().GetResult();
             }
             _logger.Info("LoadCollectorRecipients end");
         }
