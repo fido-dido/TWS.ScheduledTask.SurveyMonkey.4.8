@@ -69,6 +69,7 @@ namespace TWS.ScheduledTask.SurveyMonkey.HttpClients
                     using (Stream stream = httpClient.GetStreamAsync(request).Result)
                     {
                         var result = stream.ReadAndDeserializeFromJson<Survey>();
+                        _logger.Info("GetSurveys End: {@result}", result);
                         return result;
 
                     }
@@ -116,6 +117,7 @@ namespace TWS.ScheduledTask.SurveyMonkey.HttpClients
 
         public async Task<SurveyDetails> GetSurveyDetails(string surveyId, CancellationToken cancellationToken)
         {
+            _logger.Info("GetSurveyDetails Start");
             WebRequestHandler handler = new WebRequestHandler();
             using (HttpClient httpClient = new HttpClient(handler, true))
             {
@@ -133,6 +135,7 @@ namespace TWS.ScheduledTask.SurveyMonkey.HttpClients
                     using (Stream stream = httpClient.GetStreamAsync(request).Result)
                     {
                         var result = stream.ReadAndDeserializeFromJson<SurveyDetails>();
+                        _logger.Info("GetSurveyDetails End: {@result}", result);
                         return result;
 
                     }
@@ -154,6 +157,7 @@ namespace TWS.ScheduledTask.SurveyMonkey.HttpClients
 
         public async Task<CollectorRecipient> GetCollectorRecipients(string collectorId, CancellationToken cancellationToken)
         {
+            _logger.Info("GetCollectorRecipients Start");
             WebRequestHandler handler = new WebRequestHandler();
             using (HttpClient httpClient = new HttpClient(handler, true))
             {
@@ -171,6 +175,7 @@ namespace TWS.ScheduledTask.SurveyMonkey.HttpClients
                     using (Stream stream = httpClient.GetStreamAsync(request).Result)
                     {
                         var result = stream.ReadAndDeserializeFromJson<CollectorRecipient>();
+                        _logger.Info("GetCollectorRecipients End: {@result}", result);
                         return result;
 
                     }
@@ -212,6 +217,7 @@ namespace TWS.ScheduledTask.SurveyMonkey.HttpClients
 
         public async Task<SurveyCollector> GetSurveyCollectors(string surveyId, CancellationToken cancellationToken)
         {
+            _logger.Info("GetSurveyCollectors End");
             WebRequestHandler handler = new WebRequestHandler();
             using (HttpClient httpClient = new HttpClient(handler, true))
             {
@@ -229,6 +235,7 @@ namespace TWS.ScheduledTask.SurveyMonkey.HttpClients
                     using (Stream stream = httpClient.GetStreamAsync(request).Result)
                     {
                         var result = stream.ReadAndDeserializeFromJson<SurveyCollector>();
+                        _logger.Info("GetSurveyCollectors End: {@result}", result);
                         return result;
 
                     }
